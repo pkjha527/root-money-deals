@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, HttpCode } from '@nestjs/common';
 // Import the service from the new path
 import { AppService } from './application.service';
 
@@ -12,7 +12,15 @@ export class AppController {
   }
 
   @Get('health')
+  @HttpCode(200)
   getHealth(): any {
+    return this.appService.getHealth();
+  }
+  
+  // Alternative health check endpoint for Railway
+  @Get('healthz')
+  @HttpCode(200)
+  getHealthz(): any {
     return this.appService.getHealth();
   }
 }
