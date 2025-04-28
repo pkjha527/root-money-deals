@@ -20,8 +20,8 @@ export class DealsService {
   ) {}
 
   // Deal methods
-  async findAllDeals(): Promise<Deal[]> {
-    return this.dealModel.find({ status: 'Active' }).exec();
+  async findAllDeals(limit: number = 10): Promise<Deal[]> {
+    return this.dealModel.find({ status: 'Active' }).limit(limit).exec();
   }
 
   async findDealById(id: string): Promise<Deal> {

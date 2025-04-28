@@ -11,8 +11,8 @@ export class DealsController {
 
   // Deal endpoints
   @Get('deals')
-  findAllDeals() {
-    return this.dealsService.findAllDeals();
+  findAllDeals(@Query('limit') limit: number = 10) {
+    return this.dealsService.findAllDeals(limit);
   }
 
   @Get('deals/:id')
