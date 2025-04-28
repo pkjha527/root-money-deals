@@ -17,10 +17,10 @@ export class Category {
   @Prop({ default: true })
   isActive: boolean;
 
-  @Prop({ default: () => Date.now })
+  @Prop({ default: Date.now })
   createdAt: Date;
 
-  @Prop({ default: () => Date.now })
+  @Prop({ default: Date.now })
   updatedAt: Date;
 }
 
